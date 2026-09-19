@@ -8,15 +8,14 @@ import com.eduardo.shortestPath.tree.TreeBuilder;
 
 /**
  * 
- * @author Eduardo Amorim
+ * @author Eduardo
  *
  */
 public class BreathFirstSearchStrategy implements SearchStrategy {
 
 	@Override
 	public int minDistance(Node root) {
-		Queue<Node> queue = new ArrayDeque<>();
-		queue.addAll(root.getChildren());
+		Queue<Node> queue = new ArrayDeque<>(root.getChildren());
 		return breathFirstSearch(queue, 1);
 	}
 
