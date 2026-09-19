@@ -12,13 +12,6 @@ import com.eduardo.shortestPath.tree.TreeBuilder;
  */
 public class DepthFirstSearchStrategy implements SearchStrategy {
 
-    /**
-     * * Finds the minimum distance from the root node to a destination node
-     * * using a depth-first search.
-     *
-     * @param root the root node of the search tree
-     * @return the minimum distance to a destination node, or -1 if no path exists
-     */
     @Override
     public int minDistance(Node root) {
         int result = depthFirstSearch(root, 0);
