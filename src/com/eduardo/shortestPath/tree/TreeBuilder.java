@@ -16,8 +16,8 @@ public class TreeBuilder {
 	}
 
 	public SearchShortedTree buildSearchTree() {
-		int startLine = Integer.valueOf(this.root.getUid().substring(0, 1));
-		int startColumn = Integer.valueOf(this.root.getUid().substring(1, 2));
+		int startLine = this.root.getLine();
+		int startColumn = this.root.getColumn();
 		addNeighborNode(null, this.root, startLine, startColumn);
 
 		return new SearchShortedTree(this.root);

@@ -2,84 +2,78 @@ package com.eduardo.shortestPath.tree;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Node {
 
-	private List<Node> children;
-	private Node parent = null;
-	private char value;
-	private String uid;
+    private final char value;
+    private final int line;
+    private final int column;
+    private final List<Node> children;
 
-	public Node(char value, int line, int column) {
-		super();
-		this.children = new ArrayList<>();
-		this.value = value;
-		this.uid = new StringBuilder().append(line).append(column).toString();
-	}
+    private Node parent;
 
-	public String getUid() {
-		return uid;
-	}
+    public Node(char value, int line, int column) {
+        super();
+        this.value = value;
+        this.line = line;
+        this.column = column;
+        this.children = new ArrayList<>();
+    }
 
-	public char getValue() {
-		return value;
-	}
+    public char getValue() {
+        return value;
+    }
 
-	public List<Node> getChildren() {
-		return children;
-	}
+    public int getLine() {
+        return line;
+    }
 
-	public boolean isLeaf() {
-		return getChildren().isEmpty();
-	}
+    public int getColumn() {
+        return column;
+    }
 
-	public boolean addChildren(Node node) {
-		node.addParent(this);
-		return children.add(node);
-	}
+    public List<Node> getChildren() {
+        return children;
+    }
 
-	private void addParent(Node node) {
-		this.parent = node;
-	}
+    public boolean isLeaf() {
+        return getChildren().isEmpty();
+    }
 
-	public boolean isAlreadyInTree(Node leaf) {
-		if (leaf == null) { // could be root's parent
-			return false;
-		}
-		if (!this.equals(leaf)) {
-			return this.isAlreadyInTree(leaf.parent);
-		}
-		return true;
-	}
+    public void addChildren(Node node) {
+        node.addParent(this);
+        children.add(node);
+    }
 
-	@Override
-	public String toString() {
-		return "Node [uid=" + uid + ", value=" + value + "]";
-	}
+    private void addParent(Node node) {
+        this.parent = node;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((uid == null) ? 0 : uid.hashCode());
-		return result;
-	}
+    public boolean isAlreadyInTree(Node leaf) {
+        if (leaf == null) { // could be root's parent
+            return false;
+        }
+        if (!this.equals(leaf)) {
+            return this.isAlreadyInTree(leaf.parent);
+        }
+        return true;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Node other = (Node) obj;
-		if (uid == null) {
-			if (other.uid != null)
-				return false;
-		} else if (!uid.equals(other.uid))
-			return false;
-		return true;
-	}
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Node node = (Node) o;
+        return line == node.line && column == node.column;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(line, column);
+    }
+
+    @Override
+    public String toString() {
+        return "Node{" + ", value=" + value + ", line=" + line + ", column=" + column + '}';
+    }
 }
