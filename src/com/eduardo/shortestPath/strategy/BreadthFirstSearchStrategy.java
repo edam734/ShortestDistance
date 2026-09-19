@@ -13,37 +13,34 @@ import com.eduardo.shortestPath.tree.TreeBuilder;
  */
 public class BreadthFirstSearchStrategy implements SearchStrategy {
 
-	@Override
-	public int minDistance(Node root) {
-		Queue<Node> queue = new ArrayDeque<>(root.getChildren());
-		return breathFirstSearch(queue, 1);
+	private record NodeDepth(Node node, int depth) {
 	}
 
 	/**
-	 * The BFS is more suited for a search for the shortest path, because the first
-	 * destination node in the tree to be found is the closest one, and we can
-	 * terminate the search. <br>
-	 * <b>Worst case scenario:</b> there's only one destination {@code Node}, and
-	 * it's the farthest (most to the right) and deepest child of the tree.
-	 * 
-	 * @param queue "A queue to keep track of the child nodes that were encountered
-	 *              but not yet explored"
-	 * @param depth The current depth of the {@code SearchShortedTree}
-	 * @return The number of steps on the shortest path to the destination
+	 * Finds the minimum distance to the destination using breadth-first search.
+	 * Nodes are explored level by level, ensuring that the first destination
+	 * found corresponds to the shortest path.
+	 *
+	 * @param root the root node of the search tree
+	 * @return the minimum distance to the destination, or -1 if no path exists
 	 */
-	private int breathFirstSearch(Queue<Node> queue, int depth) {
-		Queue<Node> newQueue = new ArrayDeque<>();
-		while (!queue.isEmpty()) {
-			Node current = queue.remove();
-			if (current.getValue() == TreeBuilder.DESTINY_CHAR) {
-				return depth;
-			}
-			newQueue.addAll(current.getChildren());
-		}
-		if (newQueue.isEmpty()) {
-			return -1; // there's no more down levels and didn't found destination
-		}
-		return breathFirstSearch(newQueue, depth + 1);
+	@Override
+	public int minDistance(Node root) {
+		Queue<NodeDepth> queue = new ArrayDeque<>();
+		queue.add(new NodeDepth(root, 0));
 
+		while (!queue.isEmpty()) {
+			NodeDepth current = queue.remove();
+
+			if (current.node().getValue() == TreeBuilder.DESTINY_CHAR) {
+				return current.depth();
+			}
+
+			for (Node child : current.node().getChildren()) {
+				queue.add(new NodeDepth(child, current.depth() + 1));
+			}
+		}
+
+		return -1;
 	}
 }

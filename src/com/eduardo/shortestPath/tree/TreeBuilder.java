@@ -50,7 +50,7 @@ public class TreeBuilder {
     }
 
     private void addNeighborNode(Node previous, Node current, int line, int column) {
-        if (current != null && !isObstacle(line, column)) {
+        if (current != null) {
             if (previous != null) { // could be root's parent (null)
                 previous.addChildren(current);
             }
@@ -72,10 +72,11 @@ public class TreeBuilder {
     }
 
     private Node getNeighborNode(int line, int column) {
-        if (isInsideGrid(line, column)) {
-            return new Node(this.grid[line][column], line, column);
+        if (!isInsideGrid(line, column) || isObstacle(line, column)) {
+            return null;
         }
-        return null;
+
+        return new Node(this.grid[line][column], line, column);
     }
 
     private boolean isInsideGrid(int line, int column) {
