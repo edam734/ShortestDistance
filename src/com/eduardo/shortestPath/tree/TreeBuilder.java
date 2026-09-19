@@ -13,6 +13,13 @@ public class TreeBuilder {
         this.grid = grid;
         this.root = getFirstNodeByValue(START_CHAR);
         this.destiny = getFirstNodeByValue(DESTINY_CHAR);
+
+        if (this.root == null) {
+            throw new IllegalArgumentException("Grid does not contain a start node.");
+        }
+        if (this.destiny == null) {
+            throw new IllegalArgumentException("Grid does not contain a destination node.");
+        }
     }
 
     public SearchShortedTree buildSearchTree() {
