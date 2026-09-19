@@ -4,7 +4,7 @@ import com.edam.shortestPath.strategy.SearchStrategy;
 
 public class SearchShortestTree {
 
-	Node root;
+	private final Node root;
 	private SearchStrategy strategy;
 
 	public SearchShortestTree(Node root) {

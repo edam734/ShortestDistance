@@ -22,50 +22,48 @@ public class TreeBuilder {
         }
     }
 
-    public SearchShortestTree buildSearchTree() {
-        int startLine = this.root.getLine();
-        int startColumn = this.root.getColumn();
-        addNeighborNode(null, this.root, startLine, startColumn);
+    public Node build() {
+        addNeighborNode(null, this.root, this.root.getLine(), this.root.getColumn());
 
-        return new SearchShortestTree(this.root);
+        return this.root;
     }
 
-    private Node getFirstNodeByValue(char signal) {
-        Node desired = null;
+    public Node getRoot() {
+        return this.root;
+    }
 
-        boolean found = false;
-        int l = 0;
-        while (l < this.grid.length && !found) {
-            int c = 0;
-            while (c < this.grid[0].length && !found) {
-                if (this.grid[l][c] == signal) {
-                    found = true;
-                    desired = new Node(signal, l, c);
+    private Node getFirstNodeByValue(char value) {
+        for (int line = 0; line < this.grid.length; line++) {
+            for (int column = 0; column < this.grid[line].length; column++) {
+                if (this.grid[line][column] == value) {
+                    return new Node(value, line, column);
                 }
-                c++;
             }
-            l++;
         }
-        return desired;
+
+        return null;
     }
 
     private void addNeighborNode(Node previous, Node current, int line, int column) {
-        if (current != null) {
-            if (previous != null) { // could be root's parent (null)
-                previous.addChildren(current);
-            }
+        if (current == null) {
+            return;
+        }
 
-            if (!current.equals(this.destiny)) {
-                goToNeighborNode(current, line - 1, column); // up
-                goToNeighborNode(current, line, column - 1); // left
-                goToNeighborNode(current, line + 1, column); // down
-                goToNeighborNode(current, line, column + 1); // right
-            }
+        if (previous != null) {
+            previous.addChildren(current);
+        }
+
+        if (!current.equals(this.destiny)) {
+            goToNeighborNode(current, line - 1, column);
+            goToNeighborNode(current, line, column - 1);
+            goToNeighborNode(current, line + 1, column);
+            goToNeighborNode(current, line, column + 1);
         }
     }
 
     private void goToNeighborNode(Node current, int line, int column) {
         Node adjacentNode = getNeighborNode(line, column);
+
         if (adjacentNode != null && !adjacentNode.isAlreadyInTree(current)) {
             addNeighborNode(current, adjacentNode, line, column);
         }
@@ -80,7 +78,10 @@ public class TreeBuilder {
     }
 
     private boolean isInsideGrid(int line, int column) {
-        return line >= 0 && line < grid.length && column >= 0 && column < grid[0].length;
+        return line >= 0 &&
+                line < this.grid.length &&
+                column >= 0 &&
+                column < this.grid[line].length;
     }
 
     private boolean isObstacle(int line, int column) {
