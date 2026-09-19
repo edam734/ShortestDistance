@@ -28,10 +28,6 @@ public class TreeBuilder {
         return this.root;
     }
 
-    public Node getRoot() {
-        return this.root;
-    }
-
     private Node getFirstNodeByValue(char value) {
         for (int line = 0; line < this.grid.length; line++) {
             for (int column = 0; column < this.grid[line].length; column++) {
