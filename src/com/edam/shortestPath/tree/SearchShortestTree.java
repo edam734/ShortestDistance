@@ -1,6 +1,6 @@
-package com.eduardo.shortestPath.tree;
+package com.edam.shortestPath.tree;
 
-import com.eduardo.shortestPath.strategy.SearchStrategy;
+import com.edam.shortestPath.strategy.SearchStrategy;
 
 public class SearchShortestTree {
 

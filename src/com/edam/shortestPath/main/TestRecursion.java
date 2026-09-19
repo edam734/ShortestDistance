@@ -1,4 +1,4 @@
-package com.eduardo.shortestPath.main;
+package com.edam.shortestPath.main;
 
 import java.util.Arrays;
 import java.util.stream.IntStream;

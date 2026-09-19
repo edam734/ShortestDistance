@@ -1,4 +1,4 @@
-package com.eduardo.shortestPath.tree;
+package com.edam.shortestPath.tree;
 
 public class TreeBuilder {
 

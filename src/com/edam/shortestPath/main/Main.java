@@ -1,9 +1,9 @@
-package com.eduardo.shortestPath.main;
+package com.edam.shortestPath.main;
 
-import com.eduardo.shortestPath.strategy.BreadthFirstSearchStrategy;
-import com.eduardo.shortestPath.strategy.DepthFirstSearchStrategy;
-import com.eduardo.shortestPath.tree.SearchShortestTree;
-import com.eduardo.shortestPath.tree.TreeBuilder;
+import com.edam.shortestPath.strategy.BreadthFirstSearchStrategy;
+import com.edam.shortestPath.strategy.DepthFirstSearchStrategy;
+import com.edam.shortestPath.tree.SearchShortestTree;
+import com.edam.shortestPath.tree.TreeBuilder;
 
 public class Main {
 

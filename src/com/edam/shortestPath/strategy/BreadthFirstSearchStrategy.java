@@ -1,10 +1,10 @@
-package com.eduardo.shortestPath.strategy;
+package com.edam.shortestPath.strategy;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-import com.eduardo.shortestPath.tree.Node;
-import com.eduardo.shortestPath.tree.TreeBuilder;
+import com.edam.shortestPath.tree.Node;
+import com.edam.shortestPath.tree.TreeBuilder;
 
 /**
  * 

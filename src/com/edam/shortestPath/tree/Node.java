@@ -1,4 +1,4 @@
-package com.eduardo.shortestPath.tree;
+package com.edam.shortestPath.tree;
 
 import java.util.ArrayList;
 import java.util.List;
