@@ -94,7 +94,7 @@ To run the tests:
 mvn test
 ```
 
-The `Main` class can also be executed directly from IntelliJ IDEA.
+The `Main` class can also be run directly from an IDE.
 
 <br>
 
