@@ -11,14 +11,6 @@ public class SearchShortestTree {
 		this.root = root;
 	}
 
-	public Node getRoot() {
-		return root;
-	}
-
-	public SearchStrategy getStrategy() {
-		return strategy;
-	}
-
 	public void setStrategy(SearchStrategy strategy) {
 		this.strategy = strategy;
 	}
