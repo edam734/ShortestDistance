@@ -1,9 +1,8 @@
 package com.eduardo.shortestPath.main;
 
-import com.eduardo.shortestPath.strategy.BreathFirstSearchStrategy;
+import com.eduardo.shortestPath.strategy.BreadthFirstSearchStrategy;
 import com.eduardo.shortestPath.strategy.DepthFirstSearchStrategy;
-import com.eduardo.shortestPath.tree.Node;
-import com.eduardo.shortestPath.tree.SearchShortedTree;
+import com.eduardo.shortestPath.tree.SearchShortestTree;
 import com.eduardo.shortestPath.tree.TreeBuilder;
 
 public class Main {
@@ -16,11 +15,11 @@ public class Main {
 		char[][] grid4 = { { '*', '*', 's' }, { 'd', '*', '*' }, };
 
 		TreeBuilder tb = new TreeBuilder(grid);
-		SearchShortedTree st = tb.buildSearchTree();
+		SearchShortestTree st = tb.buildSearchTree();
 		st.setStrategy(new DepthFirstSearchStrategy());
 		int outputDTS = st.minDistance();
 		System.out.println("outputDTS: " + outputDTS);
-		st.setStrategy(new BreathFirstSearchStrategy());
+		st.setStrategy(new BreadthFirstSearchStrategy());
 		int outputBFS = st.minDistance();
 		System.out.println("outputBFS: " + outputBFS);
 		

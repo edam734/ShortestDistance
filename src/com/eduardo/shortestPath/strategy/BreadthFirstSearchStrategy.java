@@ -11,7 +11,7 @@ import com.eduardo.shortestPath.tree.TreeBuilder;
  * @author Eduardo
  *
  */
-public class BreathFirstSearchStrategy implements SearchStrategy {
+public class BreadthFirstSearchStrategy implements SearchStrategy {
 
 	@Override
 	public int minDistance(Node root) {

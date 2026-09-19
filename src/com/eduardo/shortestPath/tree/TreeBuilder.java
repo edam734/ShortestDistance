@@ -22,12 +22,12 @@ public class TreeBuilder {
         }
     }
 
-    public SearchShortedTree buildSearchTree() {
+    public SearchShortestTree buildSearchTree() {
         int startLine = this.root.getLine();
         int startColumn = this.root.getColumn();
         addNeighborNode(null, this.root, startLine, startColumn);
 
-        return new SearchShortedTree(this.root);
+        return new SearchShortestTree(this.root);
     }
 
     private Node getFirstNodeByValue(char signal) {

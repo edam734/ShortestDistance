@@ -2,12 +2,12 @@ package com.eduardo.shortestPath.tree;
 
 import com.eduardo.shortestPath.strategy.SearchStrategy;
 
-public class SearchShortedTree {
+public class SearchShortestTree {
 
 	Node root;
 	private SearchStrategy strategy;
 
-	public SearchShortedTree(Node root) {
+	public SearchShortestTree(Node root) {
 		this.root = root;
 	}
 
