@@ -45,6 +45,14 @@ Output: -1
 
 <br>
 
+## Technologies
+
+- Java 17
+- Maven
+- JUnit 5
+
+<br>
+
 ## How it works
 
 `TreeBuilder` converts the valid paths in the grid into a search tree.
