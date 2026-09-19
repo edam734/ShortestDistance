@@ -6,6 +6,10 @@ import com.edam.shortestPath.tree.Node;
 import com.edam.shortestPath.tree.SearchShortestTree;
 import com.edam.shortestPath.tree.TreeBuilder;
 
+/**
+ * Demonstrates the shortest-distance search using both breadth-first
+ * and depth-first search strategies.
+ */
 public class Main {
 
     public static void main(String[] args) {

@@ -4,6 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Represents a node in the search tree generated from the grid.
+ * <p>
+ * Each node corresponds to a specific grid position and stores its value,
+ * line and column coordinates, parent node and child nodes.
+ * Nodes are considered equal when they represent the same grid coordinates.
+ *
+ * @author edam
+ */
 public class Node {
 
     private final char value;

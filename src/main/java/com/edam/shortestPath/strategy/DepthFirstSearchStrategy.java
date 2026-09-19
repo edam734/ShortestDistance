@@ -6,9 +6,13 @@ import com.edam.shortestPath.tree.Node;
 import com.edam.shortestPath.tree.TreeBuilder;
 
 /**
+ * Implements the shortest-distance search using depth-first search.
+ * <p>
+ * Because depth-first search does not naturally guarantee the shortest path,
+ * every valid branch must be explored and the minimum resulting distance
+ * is selected.
  *
- * @author Eduardo
- *
+ * @author edam
  */
 public class DepthFirstSearchStrategy implements SearchStrategy {
 

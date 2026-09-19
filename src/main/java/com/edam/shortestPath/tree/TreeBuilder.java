@@ -1,5 +1,14 @@
 package com.edam.shortestPath.tree;
 
+/**
+ * Builds a tree representation of all valid paths that can be explored
+ * from the start position of a character grid.
+ * <p>
+ * Obstacles are ignored and cycles within the current path are prevented.
+ * Tree expansion stops when the destination node is reached.
+ *
+ * @author edam
+ */
 public class TreeBuilder {
 
     char[][] grid;
@@ -22,6 +31,11 @@ public class TreeBuilder {
         }
     }
 
+    /**
+     * Builds the search tree starting from the grid's start node.
+     *
+     * @return the root node of the generated search tree
+     */
     public Node build() {
         addNeighborNode(null, this.root, this.root.getLine(), this.root.getColumn());
 

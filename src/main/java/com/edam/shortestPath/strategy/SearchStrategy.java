@@ -2,6 +2,12 @@ package com.edam.shortestPath.strategy;
 
 import com.edam.shortestPath.tree.Node;
 
+/**
+ * Defines a strategy for finding the minimum distance from the root
+ * of a search tree to a destination node.
+ *
+ * @author edam
+ */
 public interface SearchStrategy {
 
     /**

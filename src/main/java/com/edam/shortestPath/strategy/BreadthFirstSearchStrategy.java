@@ -7,9 +7,12 @@ import com.edam.shortestPath.tree.Node;
 import com.edam.shortestPath.tree.TreeBuilder;
 
 /**
- * 
- * @author Eduardo
+ * Implements the shortest-distance search using breadth-first search.
+ * <p>
+ * Nodes are explored level by level, which guarantees that the first
+ * destination reached corresponds to the shortest path in the tree.
  *
+ * @author edam
  */
 public class BreadthFirstSearchStrategy implements SearchStrategy {
 
